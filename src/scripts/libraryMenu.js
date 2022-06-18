@@ -295,6 +295,9 @@ import '../assets/css/flexstyles.scss';
         html += '<div style="height:.5em;"></div>';
         html += `<a is="emby-linkbutton" class="navMenuOption lnkMediaFolder" href="#/home.html"><span class="material-icons navMenuOptionIcon home" aria-hidden="true"></span><span class="navMenuOptionText">${globalize.translate('Home')}</span></a>`;
 
+        //dawidflix requests
+        html += `<a is="emby-linkbutton" class="navMenuOption lnkMediaFolder" href="https://jellyseerr.dawidflix.co.uk"><i class="material-icons navMenuOptionIcon"><img src="https://github.com/Fallenbagel/jellyseerr/raw/develop/public/favicon-32x32.png"></i><span class="navMenuOptionText">${globalize.translate('Requests')}</span></a>`;
+
         // placeholder for custom menu links
         html += '<div class="customMenuOptions"></div>';
 
@@ -961,7 +964,7 @@ import '../assets/css/flexstyles.scss';
             pageTitleElement.innerHTML = '';
         }
 
-        document.title = 'Jellyfin';
+        document.title = 'dawidflix';
     }
 
     function setTitle (title) {
@@ -987,7 +990,7 @@ import '../assets/css/flexstyles.scss';
             pageTitleElement.innerText = html || '';
         }
 
-        document.title = title || 'Jellyfin';
+        document.title = title || 'dawidflix';
     }
 
     function setTransparentMenu (transparent) {
