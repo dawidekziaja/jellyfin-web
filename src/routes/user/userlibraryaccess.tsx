@@ -1,4 +1,4 @@
-import { UserDto } from '@thornbill/jellyfin-sdk/dist/generated-client';
+import type { UserDto } from '@jellyfin/sdk/lib/generated-client';
 import React, { FunctionComponent, useCallback, useEffect, useState, useRef } from 'react';
 
 import loading from '../../components/loading/loading';
@@ -235,7 +235,7 @@ const UserLibraryAccess: FunctionComponent = () => {
                 <div className='verticalSection'>
                     <SectionTitleContainer
                         title={userName}
-                        url='https://docs.jellyfin.org/general/server/users/'
+                        url='https://jellyfin.org/docs/general/server/users/'
                     />
                 </div>
                 <SectionTabs activeTab='userlibraryaccess'/>

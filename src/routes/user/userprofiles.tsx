@@ -1,4 +1,4 @@
-import { UserDto } from '@thornbill/jellyfin-sdk/dist/generated-client';
+import type { UserDto } from '@jellyfin/sdk/lib/generated-client';
 import React, {FunctionComponent, useEffect, useState, useRef} from 'react';
 import Dashboard from '../../utils/dashboard';
 import globalize from '../../scripts/globalize';
@@ -144,7 +144,7 @@ const UserProfiles: FunctionComponent = () => {
                         btnClassName='fab submit sectionTitleButton'
                         btnTitle='ButtonAddUser'
                         btnIcon='add'
-                        url='https://docs.jellyfin.org/general/server/users/adding-managing-users.html'
+                        url='https://jellyfin.org/docs/general/server/users/adding-managing-users'
                     />
                 </div>
 

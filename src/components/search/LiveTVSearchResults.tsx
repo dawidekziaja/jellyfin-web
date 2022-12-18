@@ -1,6 +1,6 @@
-import { BaseItemDto } from '@thornbill/jellyfin-sdk/dist/generated-client';
+import type { BaseItemDto } from '@jellyfin/sdk/lib/generated-client';
+import type { ApiClient } from 'jellyfin-apiclient';
 import classNames from 'classnames';
-import { ApiClient } from 'jellyfin-apiclient';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import globalize from '../../scripts/globalize';
@@ -125,7 +125,7 @@ const LiveTVSearchResults: FunctionComponent<LiveTVSearchResultsProps> = ({ serv
                 'searchResults',
                 'padded-bottom-page',
                 'padded-top',
-                { 'hide': !query || !(collectionType === 'livetv') }
+                { 'hide': !query || collectionType !== 'livetv' }
             )}
         >
             <SearchResultsRow

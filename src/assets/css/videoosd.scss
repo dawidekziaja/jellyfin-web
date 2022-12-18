@@ -115,10 +115,6 @@
     padding: 0 0.8em;
 }
 
-.layout-desktop .osdControls {
-    max-width: calc(100vh * 1.77 - 2vh);
-}
-
 .videoOsdBottom .buttons {
     padding: 0.25em 0 0;
     display: -webkit-box;
@@ -129,6 +125,10 @@
     -webkit-box-align: center;
     -webkit-align-items: center;
     align-items: center;
+
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
 }
 
 .osdVolumeSliderContainer {

@@ -227,7 +227,7 @@
     "HeaderAddUser": "Ajouter un utilisateur",
     "HeaderAdditionalParts": "Parties additionelles",
     "HeaderAdmin": "Administration",
-    "HeaderAlbumArtists": "Artistes d'album",
+    "HeaderAlbumArtists": "Artistes de l'album",
     "HeaderAlert": "Alerte",
     "HeaderAllowMediaDeletionFrom": "Autoriser la suppression de médias dans :",
     "HeaderApiKey": "Clé API",
@@ -1229,7 +1229,7 @@
     "LabelAudioSampleRate": "Taux d’échantillonnage audio :",
     "LabelAudioCodec": "Codec audio :",
     "LabelAudioChannels": "Canaux audio :",
-    "FetchingData": "Récupérer des données supplémentaires",
+    "FetchingData": "Récupération de données supplémentaires",
     "CopyStreamURLSuccess": "URL copiée avec succès.",
     "CopyStreamURL": "Copier l'URL du flux",
     "LabelBaseUrlHelp": "Ajouter un sous-répertoire personnalisé à l'URL du serveur. Par exemple : <code>http://exemple.com/<b>&lt;baseurl&gt;</b></code>",
@@ -1676,5 +1676,13 @@
     "RememberSubtitleSelections": "Définir la piste de sous-titre en fonction de l'élément précédent",
     "RememberAudioSelectionsHelp": "Choisir la piste audio la plus proche de la dernière vidéo.",
     "RememberAudioSelections": "Définir la piste audio en fonction de l'élément précédent",
-    "IgnoreDtsHelp": "Désactiver cette option pourrait résoudre certains problèmes, comme par exemple l'audio manquant sur des pistes ayant des flux audios et vidéos séparés."
+    "IgnoreDtsHelp": "La désactivation de cette option peut résoudre certains problèmes, par ex. audio manquant sur les canaux avec des flux audio et vidéo séparés.",
+    "OptionDateShowAdded": "Date d'ajout de la série",
+    "OptionDateEpisodeAdded": "Date d'ajout de l'épisode",
+    "IgnoreDts": "Ignorer DTS (horodatage de décodage)",
+    "MessageRenameMediaFolder": "Renommer une médiathèque entraînera la perte de toutes les métadonnées, procédez avec prudence.",
+    "EnableCardLayout": "Format 'Carte à jouer'",
+    "MessageNoItemsAvailable": "Aucun article n'est actuellement disponible.",
+    "MessageNoFavoritesAvailable": "Aucun favori n'est actuellement disponible.",
+    "Unreleased": "Pas encore diffusé"
 }

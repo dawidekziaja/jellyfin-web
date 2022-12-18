@@ -664,7 +664,7 @@
     "LabelKidsCategories": "Categorías infantiles:",
     "LabelKeepUpTo": "Mantener hasta:",
     "LabelInternetQuality": "Calidad en Internet:",
-    "LabelInNetworkSignInWithEasyPasswordHelp": "Utiliza el código PIN sencillo para acceder a los clientes en tu red local. Tu contraseña regular solo se necesitará fuera de casa. Si el código PIN se deja en blanco, no necesitarás una contraseña dentro de tu red local.",
+    "LabelInNetworkSignInWithEasyPasswordHelp": "Utiliza el código PIN sencillo para acceder desde un cliente en tu red local. Tu contraseña regular solo se necesitará fuera de casa. Si el código PIN se deja en blanco, no necesitarás una contraseña dentro de tu red local.",
     "LabelInNetworkSignInWithEasyPassword": "Habilitar inicio de sesión con mi código \"Easy PIN\" para conexiones dentro de la red",
     "LabelImportOnlyFavoriteChannels": "Restringir a canales marcados como favoritos",
     "LabelImageType": "Tipo de imagen:",
@@ -1548,5 +1548,10 @@
     "ButtonSpace": "Espacio",
     "ButtonExitApp": "Salir de aplicación",
     "ButtonClose": "Cerrar",
-    "AddToFavorites": "Añadir a favoritos"
+    "AddToFavorites": "Añadir a favoritos",
+    "Digital": "Digital",
+    "LabelMaxVideoResolution": "Resolución máximade transcodificación de video permitida",
+    "ButtonBackspace": "Retroceso",
+    "LabelMaxDaysForNextUpHelp": "Establece la cantidad máxima de días que un programa debe permanecer en la lista 'Siguiente' sin verlo.",
+    "IgnoreDts": "Ignorar DTS (descodificación de marca de tiempo)"
 }

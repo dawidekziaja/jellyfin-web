@@ -1,7 +1,7 @@
 import dom from '../../scripts/dom';
 import dialogHelper from '../dialogHelper/dialogHelper';
 import globalize from '../../scripts/globalize';
-import { Events } from 'jellyfin-apiclient';
+import Events from '../../utils/events.ts';
 import '../../elements/emby-checkbox/emby-checkbox';
 import '../../elements/emby-collapse/emby-collapse';
 import './style.scss';
@@ -69,8 +69,6 @@ import template from './filterdialog.template.html';
 
         if (options.mode === 'livetvchannels') {
             context.querySelector('.chkFavorite').checked = query.IsFavorite === true;
-            context.querySelector('.chkLikes').checked = query.IsLiked === true;
-            context.querySelector('.chkDislikes').checked = query.IsDisliked === true;
         } else {
             for (const elem of context.querySelectorAll('.chkStandardFilter')) {
                 const filters = `,${query.Filters || ''}`;
@@ -237,19 +235,6 @@ import template from './filterdialog.template.html';
                 for (const elem of context.querySelectorAll('.chkFavorite')) {
                     elem.addEventListener('change', () => this.onFavoriteChange(elem));
                 }
-
-                const chkLikes = context.querySelector('.chkLikes');
-                chkLikes.addEventListener('change', () => {
-                    query.StartIndex = 0;
-                    query.IsLiked = chkLikes.checked ? true : null;
-                    triggerChange(this);
-                });
-                const chkDislikes = context.querySelector('.chkDislikes');
-                chkDislikes.addEventListener('change', () => {
-                    query.StartIndex = 0;
-                    query.IsDisliked = chkDislikes.checked ? true : null;
-                    triggerChange(this);
-                });
             } else {
                 for (const elem of context.querySelectorAll('.chkStandardFilter')) {
                     elem.addEventListener('change', () => this.onStandardFilterChange(elem));

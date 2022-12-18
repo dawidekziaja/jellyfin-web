@@ -720,8 +720,6 @@ class ItemsView {
             if (params.type === 'Video') {
                 return globalize.translate('Videos');
             }
-
-            return;
         }
 
         function play() {
@@ -1108,7 +1106,7 @@ class ItemsView {
         const filters = [];
         const params = this.params;
 
-        if (!(params.type === 'nextup')) {
+        if (params.type !== 'nextup') {
             if (params.type === 'Programs') {
                 filters.push('Genres');
             } else {

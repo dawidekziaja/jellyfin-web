@@ -1,4 +1,5 @@
-import { AccessSchedule, DynamicDayOfWeek, ParentalRating, UserDto } from '@thornbill/jellyfin-sdk/dist/generated-client';
+import type { AccessSchedule, ParentalRating, UserDto } from '@jellyfin/sdk/lib/generated-client';
+import { DynamicDayOfWeek } from '@jellyfin/sdk/lib/generated-client/models/dynamic-day-of-week';
 import React, { FunctionComponent, useCallback, useEffect, useState, useRef } from 'react';
 import globalize from '../../scripts/globalize';
 import LibraryMenu from '../../scripts/libraryMenu';
@@ -167,7 +168,7 @@ const UserParentalControl: FunctionComponent = () => {
         populateRatings(allParentalRatings);
         let ratingValue = '';
 
-        if (user.Policy.MaxParentalRating) {
+        if (user.Policy.MaxParentalRating != null) {
             for (let i = 0, length = allParentalRatings.length; i < length; i++) {
                 const rating = allParentalRatings[i];
 
@@ -222,7 +223,8 @@ const UserParentalControl: FunctionComponent = () => {
                 throw new Error('Unexpected null user.Policy');
             }
 
-            user.Policy.MaxParentalRating = parseInt((page.querySelector('#selectMaxParentalRating') as HTMLSelectElement).value || '0', 10) || null;
+            const parentalRating = parseInt((page.querySelector('#selectMaxParentalRating') as HTMLSelectElement).value, 10);
+            user.Policy.MaxParentalRating = Number.isNaN(parentalRating) ? null : parentalRating;
             user.Policy.BlockUnratedItems = Array.prototype.filter.call(page.querySelectorAll('.chkUnratedItem'), function (i) {
                 return i.checked;
             }).map(function (i) {
@@ -330,7 +332,7 @@ const UserParentalControl: FunctionComponent = () => {
                 <div className='verticalSection'>
                     <SectionTitleContainer
                         title={userName}
-                        url='https://docs.jellyfin.org/general/server/users/'
+                        url='https://jellyfin.org/docs/general/server/users/'
                     />
                 </div>
                 <SectionTabs activeTab='userparentalcontrol'/>
@@ -377,9 +379,9 @@ const UserParentalControl: FunctionComponent = () => {
                             isLinkVisible={false}
                         />
                         <div className='blockedTags' style={{marginTop: '.5em'}}>
-                            {blockedTags.map((tag, index) => {
+                            {blockedTags.map(tag => {
                                 return <BlockedTagList
-                                    key={index}
+                                    key={tag}
                                     tag={tag}
                                 />;
                             })}
@@ -399,7 +401,7 @@ const UserParentalControl: FunctionComponent = () => {
                         <div className='accessScheduleList paperList'>
                             {accessSchedules.map((accessSchedule, index) => {
                                 return <AccessScheduleList
-                                    key={index}
+                                    key={accessSchedule.Id}
                                     index={index}
                                     Id={accessSchedule.Id}
                                     DayOfWeek={accessSchedule.DayOfWeek}

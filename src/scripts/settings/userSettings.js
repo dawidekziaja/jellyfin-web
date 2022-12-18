@@ -1,5 +1,5 @@
 import appSettings from './appSettings';
-import { Events } from 'jellyfin-apiclient';
+import Events from '../../utils/events.ts';
 import { toBoolean } from '../../utils/string.ts';
 
 function onSaveTimeout() {
@@ -18,6 +18,11 @@ function saveServerPreferences(instance) {
 
 const defaultSubtitleAppearanceSettings = {
     verticalPosition: -3
+};
+
+const defaultComicsPlayerSettings = {
+    langDir: 'ltr',
+    pagesPerView: 1
 };
 
 export class UserSettings {
@@ -463,10 +468,16 @@ export class UserSettings {
     }
 
     /**
+    * @typedef {Object} Query
+    * @property {number} StartIndex - query StartIndex.
+    * @property {number} Limit - query Limit.
+    */
+
+    /**
      * Load query settings.
      * @param {string} key - Query key.
      * @param {Object} query - Query base.
-     * @return {Object} Query.
+     * @return {Query} Query.
      */
     loadQuerySettings(key, query) {
         let values = this.get(key);
@@ -514,6 +525,27 @@ export class UserSettings {
     setSubtitleAppearanceSettings(value, key) {
         key = key || 'localplayersubtitleappearance3';
         return this.set(key, JSON.stringify(value), false);
+    }
+
+    /**
+     * Get comics player settings.
+     * @param {string} mediaSourceId - Media Source Id.
+     * @return {Object} Comics player settings.
+     */
+    getComicsPlayerSettings(mediaSourceId) {
+        const settings = JSON.parse(this.get('comicsPlayerSettings', false) || '{}');
+        return Object.assign(defaultComicsPlayerSettings, settings[mediaSourceId]);
+    }
+
+    /**
+     * Set comics player settings.
+     * @param {Object} value - Comics player settings.
+     * @param {string} mediaSourceId - Media Source Id.
+     */
+    setComicsPlayerSettings(value, mediaSourceId) {
+        const settings = JSON.parse(this.get('comicsPlayerSettings', false) || '{}');
+        settings[mediaSourceId] = value;
+        return this.set('comicsPlayerSettings', JSON.stringify(settings), false);
     }
 
     /**
@@ -572,6 +604,8 @@ export const loadQuerySettings = currentSettings.loadQuerySettings.bind(currentS
 export const saveQuerySettings = currentSettings.saveQuerySettings.bind(currentSettings);
 export const getSubtitleAppearanceSettings = currentSettings.getSubtitleAppearanceSettings.bind(currentSettings);
 export const setSubtitleAppearanceSettings = currentSettings.setSubtitleAppearanceSettings.bind(currentSettings);
+export const getComicsPlayerSettings = currentSettings.getComicsPlayerSettings.bind(currentSettings);
+export const setComicsPlayerSettings = currentSettings.setComicsPlayerSettings.bind(currentSettings);
 export const setFilter = currentSettings.setFilter.bind(currentSettings);
 export const getFilter = currentSettings.getFilter.bind(currentSettings);
 export const customCss = currentSettings.customCss.bind(currentSettings);
