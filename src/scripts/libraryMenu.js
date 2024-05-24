@@ -324,6 +324,8 @@ function refreshLibraryInfoInDrawer(user) {
     // placeholder for custom menu links
     html += '<div class="customMenuOptions"></div>';
 
+    html += `<a is="emby-linkbutton" class="navMenuOption lnkMediaFolder" href="https://jellyseerr.dawidflix.co.uk"><i class="material-icons navMenuOptionIcon"><img src="https://github.com/Fallenbagel/jellyseerr/raw/develop/public/favicon-32x32.png"></i><span class="navMenuOptionText">${globalize.translate('Requests')}</span></a>`;
+
     // libraries are added here
     html += '<div class="libraryMenuOptions"></div>';
 
@@ -729,7 +731,7 @@ function setDefaultTitle () {
         pageTitleElement.innerHTML = '';
     }
 
-    document.title = 'Jellyfin';
+    document.title = 'dawidflix';
 }
 
 function setTitle (title) {
@@ -755,7 +757,7 @@ function setTitle (title) {
         pageTitleElement.innerText = html || '';
     }
 
-    document.title = title || 'Jellyfin';
+    document.title = title || 'dawidflix';
 }
 
 function setTransparentMenu (transparent) {
